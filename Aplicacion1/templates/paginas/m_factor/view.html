@@ -1,0 +1,78 @@
+
+{% extends '../../layout.html' %}
+
+{% block title %} Vista de factor {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex bd-highlight mb-3 align-items-center">
+                    <div class="me-auto bd-highlight align-self-end p">
+                        <h3 class="title-card">Datos del Factor</h3>
+                    </div>
+                
+                    <div class="bd-highlight">
+                        <a href="{% url 'listMFactor' %}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Regresar al listado</a>
+                    </div>
+                </div> 
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Id </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.id}}" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">ID Asunto </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.idasunto}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Asunto</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.asunto}}" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">ID Factor </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.idfactor}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Factor</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.factor}}" disabled>
+                </div>
+                
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">ID Subfactor </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.idsubfactor}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Subfactor</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.subfactor}}" disabled>
+                </div>
+                
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Grupo </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.grupo}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Historial</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.historial}}" disabled>
+                </div>
+                
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Observaciones</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MFactor.obs}}" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

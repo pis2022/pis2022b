@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/641881bacc.js" crossorigin="anonymous"></script>
+
+
+       <!-- ESTILOS PROPIoS -->
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'assets/css/auth.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <form action="" class="formulario">
+        <h1>Registrarse</h1>
+        <div class="contenedor">
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="text" placeholder="Nombre Completo">
+            </div>
+            <div class="input-contenedor">
+                <i class="fas fa-envelope icon"></i>
+                <input type="text" placeholder="Email">
+            </div>
+            <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Contraseña">
+            </div>
+            <input type="submit" value="Registrarse" class="button">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus maiores possimus, mi. </p>
+            <p>¿Ya tienes una cuenta?<a href="">Iniciar Sesion</a></p>
+        </div>
+
+    </form>
+    
+</body>
+</html>

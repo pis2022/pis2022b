@@ -1,0 +1,105 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Añade documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del factor</h3>
+            <div class="card-body">
+                {% if MFactor %}  
+               
+                <form action="/mFactor/modify/{{MFactor.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="idasunto" id="floatingInput" placeholder="Nombres" value="{{MFactor.idasunto}}">
+                        <label for="floatingInput">ID Asunto</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="asunto" id="floatingInput" placeholder="Nombres" value="{{MFactor.asunto}}">
+                        <label for="floatingInput">Asunto</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="idfactor" id="floatingInput" placeholder="Nombres" value="{{MFactor.idfactor}}">
+                        <label for="floatingInput">ID Factor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="factor" id="floatingInput" placeholder="Nombres" value="{{MFactor.factor}}">
+                        <label for="floatingInput">Factor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="idsubfactor" id="floatingInput" placeholder="Nombres" value="{{MFactor.idsubfactor}}">
+                        <label for="floatingInput">ID Subfactor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="subfactor" id="floatingInput" placeholder="Nombres" value="{{MFactor.subfactor}}">
+                        <label for="floatingInput">Subfactor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="grupo" id="floatingInput" placeholder="grupo" value="{{MFactor.grupo}}">
+                        <label for="floatingInput">Grupo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="historial" id="floatingInput" placeholder="tipo" value="{{MFactor.historial}}">
+                        <label for="floatingInput">Historial</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="obs" id="floatingInput" placeholder="Observaciones" value="{{MFactor.obs}}">
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+              
+                 <form action="/mFactor/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="idasunto" id="floatingInput" placeholder="id Asunto" >
+                        <label for="floatingInput">ID Asunto</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="asunto" id="floatingInput" placeholder="asunto" >
+                        <label for="floatingInput">Asunto</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="idfactor" id="floatingInput" placeholder="id factor" >
+                        <label for="floatingInput">ID Factor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="factor" id="floatingInput" placeholder="factor" >
+                        <label for="floatingInput">Factor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="idsubfactor" id="floatingInput" placeholder="id subfactor" >
+                        <label for="floatingInput">ID Subfactor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="subfactor" id="floatingInput" placeholder="subfactor" >
+                        <label for="floatingInput">Subfactor</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="grupo" id="floatingInput" placeholder="grupo" >
+                        <label for="floatingInput">Grupo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="historial" id="floatingInput" placeholder="historia" >
+                        <label for="floatingInput">Historial</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="obs" id="floatingInput" placeholder="bbservaciones">
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

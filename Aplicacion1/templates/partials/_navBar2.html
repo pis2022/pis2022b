@@ -1,0 +1,94 @@
+
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bx-taxi'></i>
+      <span class="logo_name">PNP</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bxs-user-circle' ></i>
+          <span class="link_name">Mi Usuario</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Mi Usuario</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-user'></i>
+            <span class="link_name">Mod. Persona</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+
+          <li><a class="link_name" href="#">Category</a></li>
+          <li><a href="{% url 'listMAreasORI' %}">MareasOri</a></li>
+          <li><a href="{% url 'listiPersona' %}">persona</a></li>
+          <li><a href="{% url 'listMFactor' %}">M_Factor</a></li>
+          <li><a href="{% url 'listmUser' %}">M_User</a></li>
+          <li><a href="{% url 'listmUserRol' %}">M_user_rol</a></li>
+          <li><a href="{% url 'listDocumentsORI' %}">tipo_doc_ori</a></li>
+          <li><a href="{% url 'listDocuments' %}">tipo_doc</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-memory-card' ></i>
+          <span class="link_name">Mod. Contra</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Mod. Contra</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-archive' ></i>
+          <span class="link_name">Mod. Mesa Partes</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Mod. Mesa Partes</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="link_name">Mod. Mantenimiento</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Mod. Mantenimiento</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bxs-user' ></i>
+          <span class="link_name">Mod. Usuario</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Mod. Usuario</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
+      </div>
+      <div class="name-job">
+        {% if request.user.is_authenticated %}
+        <div class="profile_name">{{request.user}}</div>
+        {%else%}
+        <div class="profile_name">Nombre Usuario</div>
+        {% endif %}
+        <div class="job">Rol Usuario</div>
+      </div>
+      
+      
+      <!-- <i class='bx bx-log-out' ><a href="{% url 'logout' %}">Logout</a></i> -->
+      <a href="{% url 'logout' %}"><i class='bx bx-log-out' ></i></a>
+    </div>
+  </li>
+</ul>
+  </div>
+

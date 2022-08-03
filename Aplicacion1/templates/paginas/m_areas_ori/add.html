@@ -1,0 +1,87 @@
+{% extends '../../layout.html' %}
+
+{% block title %} MareasOri {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del la MAreasOri</h3>
+            <div class="card-body">
+                {% if MAreaORI %}
+                <form action="/mAreasORI/modify/{{MAreaORI.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="area" id="floatingInput" placeholder="Nombres" value="{{MAreaORI.area}}">
+                        <label for="floatingInput">Area</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="grupo" id="floatingInput" placeholder="grupo" value="{{MAreaORI.grupo}}">
+                        <label for="floatingInput">Grupo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="tipo" id="floatingInput" placeholder="tipo" value="{{MAreaORI.tipo}}">
+                        <label for="floatingInput">Tipo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="encargado" id="floatingInput" placeholder="encargado" value="{{MAreaORI.encargado}}">
+                        <label for="floatingInput">Encargado</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="email" value="{{MAreaORI.email}}">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="nexo" id="floatingInput" placeholder="nexo" value="{{MAreaORI.nexo}}">
+                        <label for="floatingInput">Nexo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px" name="obs">{{MAreaORI.obs}}</textarea>
+                        <label for="floatingTextarea2">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+              
+                 <form action="/mAreasORI/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="area" id="floatingInput" placeholder="Area">
+                        <label for="floatingInput">Area</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="grupo" id="floatingInput" placeholder="Grupo" >
+                        <label for="floatingInput">Grupo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="tipo" id="floatingInput" placeholder="tipo" >
+                        <label for="floatingInput">Tipo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="encargado" id="floatingInput" placeholder="encargado" >
+                        <label for="floatingInput">Encargado</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="email" >
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="nexo" id="floatingInput" placeholder="nexo" >
+                        <label for="floatingInput">Nexo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px" name="obs"></textarea>
+                        <label for="floatingTextarea2">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

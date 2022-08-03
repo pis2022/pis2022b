@@ -1,0 +1,51 @@
+
+{% extends '../../layout.html' %}
+
+{% block title %} Vista de documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex bd-highlight mb-3 align-items-center">
+                    <div class="me-auto bd-highlight align-self-end p">
+                        <h3 class="title-card">Datos del documento</h3>
+                    </div>
+                
+                    <div class="bd-highlight">
+                        <a href="{% url 'listiPersona' %}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Regresar al listado</a>
+                    </div>
+                </div> 
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Id </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{IPersona.id}}" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Tipo de persona </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{IPersona.idtipopersona}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Procedencia</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{IPersona.idprocedencia}}" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Tipo de documento</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{IPersona.idtipodocumento}}" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Observaciones</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{IPersona.obs}}" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

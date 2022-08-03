@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+<h1> hola mundo wanser</h1>
+{% if tipoDocumento %}  
+    <form action="/documentType/modify/{{tipoDocumento.id}}" method="POST">{% csrf_token %} 
+        <ul>Documento</ul>
+        <input type="text" name="Documento" value="{{tipoDocumento.documento}}" >
+        <ul>Descripcion</ul>
+        <input type="text" name="Descripcion"  value="{{tipoDocumento.descripcion}}">
+        <ul>Observaciones</ul>
+        <input type="text" name="Obs" value="{{tipoDocumento.obs}}">
+        <input type="submit" value="save">
+
+    </form>
+{% else %}
+    <form action="/documentType/create" method="POST">{% csrf_token %}
+        <ul>Documento</ul>
+        <input type="text" name="Documento" >
+        <ul>Descripcion</ul>
+        <input type="text" name="Descripcion">
+        <ul>Observaciones</ul>
+        <input type="text" name="Obs" >
+        <input type="submit" value="save">
+{% endif %}
+
+
+</form>
+</body>
+</html>

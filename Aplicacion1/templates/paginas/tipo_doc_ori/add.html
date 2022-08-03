@@ -1,0 +1,62 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Añade documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del documento</h3>
+            <div class="card-body">
+                {% if tipoDocumentoORI %}  
+                <form action="/documentTypeORI/modify/{{tipoDocumentoORI.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Documento" id="floatingInput" placeholder="Nombres" value="{{tipoDocumentoORI.documento}}">
+                        <label for="floatingInput">Documento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Descripcion" id="floatingInput" placeholder="Descripcion" value="{{tipoDocumentoORI.descripcion}}">
+                        <label for="floatingInput">Descripcion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Grupo" id="floatingInput" placeholder="Observaciones" value="{{tipoDocumentoORI.grupo}}">
+                        <label for="floatingInput">Grupo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Obs" id="floatingInput" placeholder="Observaciones" value="{{tipoDocumentoORI.obs}}">
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+                 <form action="/documentTypeORI/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Documento" id="floatingInput" placeholder="Nombres">
+                        <label for="floatingInput">Documento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Descripcion" id="floatingInput" placeholder="Descripcion" >
+                        <label for="floatingInput">Descripcion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Grupo" id="floatingInput" placeholder="Descripcion" >
+                        <label for="floatingInput">Grupo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Obs" id="floatingInput" placeholder="Observaciones" >
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

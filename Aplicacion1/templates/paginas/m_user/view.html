@@ -1,0 +1,78 @@
+
+{% extends '../../layout.html' %}
+
+{% block title %} Vista de datos de usuario {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex bd-highlight mb-3 align-items-center">
+                    <div class="me-auto bd-highlight align-self-end p">
+                        <h3 class="title-card">Datos del usuario</h3>
+                    </div>
+                
+                    <div class="bd-highlight">
+                        <a href="{% url 'listmUser' %}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Regresar al listado</a>
+                    </div>
+                </div> 
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Id </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.id}}" disabled>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">CIP </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.cip}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Codigo</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.codigo}}" disabled>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Apellido Paterno </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.apepaterno}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Apellido Materno</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.apematerno}}" disabled>
+                </div>
+                
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Nombres </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.nombres}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Email</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.email}}" disabled>
+                </div>
+                
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">ID Rol </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.idrol}}" disabled>
+                </div>
+               
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Motivo de vaja</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.motivobaja}}" disabled>
+                </div>
+                
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Observaciones</span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="{{MUser.obs}}" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

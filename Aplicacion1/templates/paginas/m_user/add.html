@@ -1,0 +1,117 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Formulario usuario{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del usuario</h3>
+            <div class="card-body">
+                {% if MUser %}  
+                <form action="/mUser/modify/{{MUser.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="cip" id="floatingInput" placeholder="Nombres" value="{{MUser.cip}}">
+                        <label for="floatingInput">CIP</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="codigo" id="floatingInput" placeholder="Nombres" value="{{MUser.codigo}}">
+                        <label for="floatingInput">Codigo</label>
+                    </div>
+                   
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="apepaterno" id="floatingInput" placeholder="Nombres" value="{{MUser.apepaterno}}">
+                        <label for="floatingInput">Apellido paterno</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="apematerno" id="floatingInput" placeholder="Nombres" value="{{MUser.apematerno}}">
+                        <label for="floatingInput">Apellido materno</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="nombres" id="floatingInput" placeholder="nombres" value="{{MUser.nombres}}">
+                        <label for="floatingInput">Nombres</label>
+                    </div>
+                  
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="email" value="{{MUser.email}}">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idrol" id="floatingInput" placeholder="id rol" class="form-select">
+                            {% for i in Roles %}  
+                            <option value="{{i.id}}">{{i.rol}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Seleccina el rol</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="motivobaja" id="floatingInput" placeholder="Observaciones" value="{{MUser.motivobaja}}">
+                        <label for="floatingInput">Motivo Baja</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="obs" id="floatingInput" placeholder="Observaciones" value="{{MUser.obs}}">
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+              
+                 <form action="/mUser/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="cip" id="floatingInput" placeholder="Nombres">
+                        <label for="floatingInput">CIP</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="codigo" id="floatingInput" placeholder="Nombres">
+                        <label for="floatingInput">Codigo</label>
+                    </div>
+                   
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="apepaterno" id="floatingInput" placeholder="Nombres" >
+                        <label for="floatingInput">Apellido paterno</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="apematerno" id="floatingInput" placeholder="Nombres" >
+                        <label for="floatingInput">Apellido materno</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="nombres" id="floatingInput" placeholder="nombres" >
+                        <label for="floatingInput">Nombres</label>
+                    </div>
+                  
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="email" id="floatingInput" placeholder="email" >
+                        <label for="floatingInput">Email</label>
+                    </div>
+                   
+                    <div class="form-floating mb-3">
+                        <select name="idrol" id="floatingInput" placeholder="id rol" class="form-select">
+                            {% for i in Roles %}  
+                            <option value="{{i.id}}">{{i.rol}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Seleccina el rol</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="motivobaja" id="floatingInput" placeholder="Observaciones" >
+                        <label for="floatingInput">Motivo Baja</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="obs" id="floatingInput" placeholder="Observaciones" >
+                        <label for="floatingInput">Observaciones</label>
+                    </div>
+
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

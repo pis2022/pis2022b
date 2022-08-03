@@ -1,0 +1,57 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Añade documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del documento</h3>
+            <div class="card-body">
+                {% if MUserRol %}  
+               
+                <form action="/mUserRol/modify/{{MUserRol.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="rol" id="floatingInput" placeholder="ROL" value="{{MUserRol.rol}}">
+                        <label for="floatingInput">ROL</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="descripcion" id="floatingInput" placeholder="DESCRIPCION" value="{{MUserRol.descripcion}}">
+                        <label for="floatingInput">DESCRIPCION</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="obs" id="floatingInput" placeholder="OBSERVACIONES" value="{{MUserRol.obs}}">
+                        <label for="floatingInput">OBSERVACIONES</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+              
+                 <form action="/mUserRol/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="rol" id="floatingInput" placeholder="ROL" >
+                        <label for="floatingInput">ROL</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="descripcion" id="floatingInput" placeholder="DESCRIPCION" >
+                        <label for="floatingInput">DESCRIPCION</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="obs" id="floatingInput" placeholder="OBSERVACIONES" >
+                        <label for="floatingInput">OBSERVACIONES</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                   
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,192 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Añade documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del documento</h3>
+            <div class="card-body">
+                {% if IPersona %}  
+               
+                <form action="/iPersona/modify/{{IPersona.id}}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <select name="idtipopersona" id="floatingInput" placeholder="id rol"  value="{{IPersona.idtipopersona}}" class="form-select">
+                            {% for i in Tipopersona %}  
+                            <option value="{{i.id}}">{{i.tipopersona}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Tipo de persona</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idprocedencia" id="floatingInput" placeholder="id rol" value="{{IPersona.idprocedencia}}" class="form-select">
+                            {% for i in Mprocedencia %}  
+                            <option value="{{i.id}}">{{i.procedencia}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Procedencia</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idtipodocumento" id="floatingInput" placeholder="id rol" value="{{IPersona.idtipodocumento}}" class="form-select">
+                            {% for i in Tipodocumento %}  
+                            <option value="{{i.id}}">{{i.documento}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Tipo de documento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idubigeo" id="floatingInput" placeholder="id rol" value="{{IPersona.idubigeo}}" class="form-select">
+                            {% for i in Mubigeo %}  
+                            <option value="{{i.id}}">{{i.departamento}}{%if i.provincia != '' %}-{{i.provincia}}{%endif%}{%if i.distrito != '' %}-{{i.distrito}}{%endif%}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Ubigeo</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px" name="obs">{{IPersona.obs}}</textarea>
+                        <label for="floatingTextarea2">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+
+                {% else %}
+              
+                 <form action="/iPersona/create" method="POST"  id="indexform" data-city-url="{% url 'ajax_cities' %}" data-province-url="{% url 'ajax_province' %}">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <select name="idtipopersona" id="floatingInput" placeholder="id rol" class="form-select">
+                            {% for i in Tipopersona %}  
+                            <option value="{{i.id}}">{{i.tipopersona}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Tipo de persona</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idprocedencia" id="floatingInput" placeholder="id rol" class="form-select">
+                            {% for i in Mprocedencia %}  
+                            <option value="{{i.id}}">{{i.procedencia}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Procedencia</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idtipodocumento" id="floatingInput" placeholder="id rol" class="form-select">
+                            {% for i in Tipodocumento %}  
+                            <option value="{{i.id}}">{{i.documento}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Tipo de documento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select name="idubigeo" id="floatingInput" placeholder="id rol"  class="form-select">
+                            {% for i in Mubigeo %}  
+                            <option value="{{i.id}}">{{i.departamento}}-{{i.provincia}}-{{i.distrito}}</option>
+                            {% endfor %}
+                          </select>
+                          <label for="floatingInput">Ubigeo</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                    <select name="departamentos" id="departamentos" class="form-select">
+                        {% for depa in d %}
+                        <option 
+                        value="{{depa.iddepartamento}}"> {{ depa.departamento}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingInput">Departamento</label>
+                    </div>
+                    
+                    
+                    <div class="form-floating mb-3">
+                      <select name="provincias" id="provincias" class="form-select" id="floatingInput">
+                      </select>
+                      <label for="floatingInput">Provincias</label>
+                    </div>
+                    
+                  <div class="form-floating mb-3">
+                      <select name="ciudades" id="ciudades" class="form-select" id="floatingInput">
+                      </select>
+                      <label for="floatingInput">Ciudades</label>
+                  </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px" name="Obs"></textarea>
+                        <label for="floatingTextarea2">Observaciones</label>
+                    </div>
+                    
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $("#departamentos").change(function () {
+      var url = $("#indexform").attr("data-province-url");
+      var departamentoid = $(this).val();
+      console.log('selecionado: ', departamentoid)
+      $.ajax({
+        url: url,
+        data: {
+          'departamentoid': departamentoid
+        },
+        success: function (data) {
+          console.log(data)
+          $('#provincias').html(data);
+        }
+      });
+      
+      if($('#provincias').val() == null){
+        console.log('vacio')
+        $('#ciudades').html('<option value=""></option>')
+      }else{
+        
+        var provinciaid = $('#provincias').val(); 
+        var urls = $("#indexform").attr("data-city-url");
+        $.ajax({
+          url: urls,
+          data: {
+            'departamentoid': departamentoid,
+            'provinciaid': provinciaid
+          },
+          success: function (data) {
+            console.log(data)
+            $('#ciudades').html(data);
+          }
+        });
+        
+      }
+    });
+  </script>
+  
+  <script>
+    $("#provincias").change(function () {
+      var url = $("#indexform").attr("data-city-url");
+      var departamentoid = $('#departamentos').val(); 
+      var provinciaid = $(this).val();
+      console.log('provincia seleccionada: ', provinciaid)
+      console.log('url: ', url)
+      $.ajax({
+        url: url,
+        data: {
+          'departamentoid': departamentoid,
+          'provinciaid': provinciaid
+        },
+        success: function (data) {
+          console.log(data)
+          $('#ciudades').html(data);
+        }
+      });
+    });
+  </script>
+{% endblock %}

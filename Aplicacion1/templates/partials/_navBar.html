@@ -1,0 +1,100 @@
+
+  <div class="sidebar">
+    <div class="logo-details">
+        <div class="logo_name">PNP</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list sidePnp">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="{% url 'listiPersona' %}">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Mod. Persona</span>
+        </a>
+         <span class="tooltip">Mod. Persona</span>
+      </li>
+      <li>
+       <a href="#">
+         <i class='bx bx-memory-card' ></i>
+         <span class="links_name">Mod. Contra</span>
+       </a>
+       <span class="tooltip">Mod. Contra</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-archive' ></i>
+         <span class="links_name">Mod.Mesa Partes</span>
+       </a>
+       <span class="tooltip">Mod.Mesa Partes</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog'></i>
+         <span class="links_name">Mod. Mantenimiento</span>
+       </a>
+       <span class="tooltip">Mod. Mantenimiento</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bxs-user' ></i>
+         <span class="links_name">Mod. Usuario</span>
+       </a>
+       <span class="tooltip">Mod. Usuario</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bxs-user-circle' ></i>
+         <span class="links_name">Mi Usuario</span>
+       </a>
+       <span class="tooltip">Mi Usuario</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Setting</span>
+       </a>
+       <span class="tooltip">Setting</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <!---img src="../../../ProyectoPNP/static/images/imagen.jpg" alt="profileImg"-->
+           <div class="name_job">
+             <div class="name">Nombre Usuario</div>
+             <div class="job">Rol Usuario</div>
+           </div>
+         </div>
+         <i class='bx bx-log-out' id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+
+  <script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("open");
+    menuBtnChange();//calling the function(optional)
+  });
+
+  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+  });
+
+  // following are the code to change sidebar button(optional)
+  function menuBtnChange() {
+   if(sidebar.classList.contains("open")){
+     closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+   }else {
+     closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+   }
+  }
+  </script>
+</body>
+</html>

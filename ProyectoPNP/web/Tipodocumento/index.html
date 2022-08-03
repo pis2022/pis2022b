@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Tipos de documentos</h1>
+        <th><a href="form">Add</a></th>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>DOCUMENTO</th>
+                    <th>DESCRIPCION</th>
+                    <th>OBSERVACION</th>
+                    <th colspan="3">OPCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in tiposDocumento %}  
+                <tr>
+                    <th>{{i.id}}</th>
+                    <th>{{i.documento}}</th>
+                    <th>{{i.descripcion}}</th>
+                    <th>{{i.obs}}</th>
+                    <th><a href="edit/{{i.id}}">Edit</a></th>
+                    <th><a href="delete/{{i.id}}">Delete</a></th>
+                    <th><a href="view/{{i.id}}">View</a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>    
+    </body>
+</html>

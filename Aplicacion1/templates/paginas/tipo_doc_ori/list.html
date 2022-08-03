@@ -1,0 +1,56 @@
+
+{% extends '../../layout.html' %}
+
+{% block title %} Lista de documentos {% endblock %}
+
+{% block content %}
+
+
+<!-- float-left icons -->
+<!-- fixed-top -->
+<!-- alerts -->
+{% load static %}
+
+<div class="d-flex bd-highlight mb-3 align-items-center">
+    <div class="me-auto bd-highlight align-self-end p">
+        <h3 class="title-card">Tipos de documentos</h3>
+    </div>
+
+    <div class="bd-highlight">
+        <a href="form" class="btn btn-secondary">Agregar un nuevo documento<i class="fas fa-plus-circle"></i></a>
+    </div>
+</div> 
+
+<div class="table-responsive">
+    <table class=" table table-borderless">
+        
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DOCUMENTO</th>
+                <th>DESCRIPCION</th>
+                <th>GRUPO</th>
+                <th>OBSERVACION</th>
+                <th colspan="3">OPCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in  tiposDocumentoORI %}  
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.documento}}</td>
+                <td>{{i.descripcion}}</td>
+                <td>{{i.grupo}}</td>
+                <td>{{i.obs}}</td>
+                <td><a href="edit/{{i.id}}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+                <a href="delete/{{i.id}}" class="btn btn-secondary btnEliminacion"><i class="fas fa-trash-alt"></i></a>
+                <a href="view/{{i.id}}" class="btn btn-secondary "><i class="fas fa-eye"></i></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+           
+    </table>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends '../../layout.html' %}
+
+{% block title %} Añade documento {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card p-3">
+            <h3 class="title-card">Ingrese los datos del documento</h3>
+            <div class="card-body">
+                {% if tipoDocumento %}  
+                <form action="/documentType/modify/{{tipoDocumento.id}}" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Documento" id="floatingInput" placeholder="Nombres" value="{{tipoDocumento.documento}}">
+                        <label for="floatingInput">Documento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Descripcion" id="floatingInput" placeholder="Descripcion" value="{{tipoDocumento.descripcion}}">
+                        <label for="floatingInput">Descripcion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px" name="Obs">{{tipoDocumento.obs}}</textarea>
+                        <label for="floatingTextarea2">Observaciones</label>
+
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% else %}
+                 <form action="/documentType/create" method="POST">{% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Documento" id="floatingInput" placeholder="Nombres">
+                        <label for="floatingInput">Documento</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="Descripcion" id="floatingInput" placeholder="Descripcion" >
+                        <label for="floatingInput">Descripcion</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea2" style="height: 100px" name="Obs">{{tipoDocumento.obs}}</textarea>
+                        <label for="floatingTextarea2">Observaciones</label>
+                    </div>
+                    <div class="d-grip gap-2 d-md-flex   top-buffer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
